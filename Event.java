@@ -99,8 +99,8 @@ public class Event {
 
     public void bookTicket(User user) {
         if (hasAvailableSeats()) {
-            ticketQueue.add(user);
-            availableSeats--;
+            ticketQueue.add(user); // add user to the queue
+            availableSeats--; // -1 from the available seats
             System.out.println("ticket booked successfully for " + user.getName() + " for event: " + name);
         } else {
             System.out.println("sorry, no available seats for event: " + name);
@@ -109,8 +109,8 @@ public class Event {
 
     public void cancelTicket() {
         if (!ticketQueue.isEmpty()) {
-            User user = ticketQueue.poll();
-            availableSeats++;
+            User user = ticketQueue.poll(); // remove user to the queue
+            availableSeats++; // +1 from the available seats
             System.out.println("ticket canceled successfully for " + user.getName() + " for event: " + name);
         } else {
             System.out.println("no tickets to cancel for event: " + name);
